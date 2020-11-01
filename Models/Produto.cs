@@ -26,7 +26,7 @@ namespace appMySqlTurmaA.Models
         [Required(ErrorMessage = "O campo é obrigatório!")]
         public string precoUnitario { get; set; }
 
-        [Display(Name = "Código Categoria")]
+        [Display(Name = "Categoria")]
         [Required(ErrorMessage = "O campo é obrigatório!")]
         [ForeignKey("Categoria")]
         public string idCategoria { get; set; }

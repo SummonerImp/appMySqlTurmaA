@@ -1,0 +1,54 @@
+﻿@model appMySqlTurmaA.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalhes do Cliente";
+}
+
+<h2>Details</h2>
+
+<div class="modal-content">
+    <div class="modal-header">
+        <div>
+            <h4>Cliente</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.endereco)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.endereco)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.telefone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.telefone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.cpf)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.cpf)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { Model.idCliente, Model.nome, Model.endereco, Model.telefone, Model.cpf }) |
+            @Html.ActionLink("Voltar à Lista", "Index")
+        </p>
+    </div>
+</div>

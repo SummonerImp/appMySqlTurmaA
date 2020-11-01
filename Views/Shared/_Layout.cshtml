@@ -33,7 +33,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
-                            <a href="">
+                            <a href="/Cliente/Create">
                                 <div>
                                     <i class="fa fa-users fa-fw"></i>Cadastro de Clientes
                                 </div>
@@ -53,6 +53,16 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Procurar..."/>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-home fa-fw"></i>Principal
@@ -64,31 +74,70 @@
                             </a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="">
-                                        <i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Categoria
+                                    <a href="/Produto/Create">
+                                        <i class="fa fa-plus fa-fw" style="color:#f6282c"></i>Cadastrar Produto
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <i class="fa fa-search fa-fw" style="color:#f00"></i>Buscar Produto
+                                    <a href="/Produto/DetailsBusca">
+                                        <i class="fa fa-refresh fa-fw" style="color: #f6282c"></i>Atualizar
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <i class="fa fa-product-hunt fa-fw" style="color:#f00"></i>Produto
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <i class="fa fa-sort-numeric-asc fa-fw" style="color:#f00"></i>Estoque
+                                    <a href="/Produto/List">
+                                        <i class="fa fa-sort-numeric-asc fa-fw" style="color:#f6282c"></i>Estoque
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-user-secret fa-fw"></i>Clientes
+                                <i class="fa fa-user-secret fa-fw"></i>Clientes<span class="fa arrow"></span>
                             </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Cliente/List">
+                                        <i class="fa fa-search fa-fw" style="color:Highlight"></i>Listar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Cliente/Create">
+                                        <i class="fa fa-user-plus fa-fw" style="color:Highlight"></i>Cadastrar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Cliente/DetailsBusca">
+                                        <i class="fa fa-refresh fa-fw" style="color:Highlight"></i>Atualizar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/Cliente/DeleteBusca">
+                                        <i class="fa fa-trash fa-fw" style="color:Highlight"></i>Excluir
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-check fa-fw"></i>Categoria<span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Categoria/List">
+                                        <i class="fa fa-search fa-fw" style="color:yellow"></i>Listar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Categoria/Create">
+                                        <i class="fa fa-plus fa-fw" style="color:yellow"></i>Cadastrar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Categoria/DetailsBusca">
+                                        <i class="fa fa-refresh fa-fw" style="color:yellow"></i>Atualizar
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -99,6 +148,7 @@
             @RenderBody()
         </div>
     </div>
-    
+    @Scripts.Render("~/bundles/inputmask")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

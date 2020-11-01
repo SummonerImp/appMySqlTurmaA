@@ -1,0 +1,91 @@
+﻿@model IEnumerable<appMySqlTurmaA.Models.Cliente>
+
+@{
+    ViewBag.Title = "Lista dos Clientes";
+}
+
+<h2>List</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <button class="btn btn-success create">Criar Novo Cliente <i class="glyphicon glyphicon-open"></i></button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpf)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    @Html.HiddenFor(modelItem => item.idCliente)
+    <td>
+        @Html.DisplayFor(modelItem => item.nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.endereco)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.telefone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cpf)
+    </td>
+    <td>
+        @*@Html.ActionLink("Editar", "Edit", new { item.idCliente, item.nome, item.endereco, item.telefone, item.cpf }) |
+            @Html.ActionLink("Detalhes", "Details", new { item.idCliente, item.nome, item.endereco, item.telefone, item.cpf }) |
+            @Html.ActionLink("Deletar", "Delete", new { item.idCliente, item.nome, item.endereco, item.telefone, item.cpf })*@
+
+        <button class="btn btn-primary edit" data-url="@Url.Action("Edit", new { item.idCliente, item.nome, item.endereco, item.telefone, item.cpf })"><i class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-success details" data-url="@Url.Action("Details", new { item.idCliente, item.nome, item.endereco, item.telefone, item.cpf })"><i class="glyphicon glyphicon-file"></i></button>
+        <button class="btn btn-danger delete" data-url="@Url.Action("Delete", new { item.idCliente, item.nome, item.endereco, item.telefone, item.cpf })"><i class="glyphicon glyphicon-trash"></i></button>
+    </td>
+</tr>
+}
+</table>
+
+<div id="modal" class="modal fade" role="dialog">
+@section scripts{
+    <script>
+        $(function () {
+            $(".create").click(function () {
+                $("#modal").load("Create", function () {
+                    $("#modal").modal();
+                })
+            });
+
+            $(".details").click(function () {
+                var url = $(this).attr("data-url");
+                $("#modal").load(url, function () {
+                    $("#modal").modal();
+                 })
+            });
+
+            $(".edit").click(function () {
+                var url = $(this).attr("data-url");
+                $("#modal").load(url, function () {
+                    $("#modal").modal();
+                })
+            });
+
+            $(".delete").click(function () {
+                var url = $(this).attr("data-url");
+                $("#modal").load(url, function () {
+                    $("#modal").modal();
+                })
+            });
+        })
+    </script>
+}
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<appMySqlTurmaA.Models.Produto>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo Registro", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precoUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCategoria)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precoUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCategoria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { item.idProduto, item.nome, item.precoUnitario, item.idCategoria}) |
+            @Html.ActionLink("Delete", "Delete", new { item.idProduto, item.nome, item.precoUnitario, item.idCategoria })
+        </td>
+    </tr>
+}
+
+</table>

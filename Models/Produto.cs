@@ -66,7 +66,7 @@ namespace appMySqlTurmaA.Models
         }
 
         public void UpdateProduto(Produto produto) {
-           string strQuery = string.Format("update produto set nome = '{1}', precoUnitario = '{2}', idCategoria = '{3}' where idCategoria = {0}", produto.idCategoria, produto.nome, produto.precoUnitario, produto.idCategoria);
+           string strQuery = string.Format("update produto set nome = '{1}', precoUnitario = '{2}', idCategoria = '{3}' where idProduto = {0}", produto.idProduto, produto.nome, produto.precoUnitario, produto.idCategoria);
             using (db = new ConexaoDB()) {
                 db.ExecutaComando(strQuery);
             }

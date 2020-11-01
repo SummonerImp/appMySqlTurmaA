@@ -48,7 +48,11 @@ namespace appMySqlTurmaA.Controllers
 
         // GET: Cliente/Edit/5
         public ActionResult Edit(Produto produto) {
-            return View(produto);
+            var objCat = new Produto();
+            var listaCat = objCat.SelectCategoria();
+            SelectList lista = new SelectList(listaCat, "idCategoria", "nome");
+            ViewBag.Lista = lista;
+            return View(objCat);
         }
 
         // POST: Cliente/Edit/5
